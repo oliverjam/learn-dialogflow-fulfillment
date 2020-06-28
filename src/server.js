@@ -9,7 +9,7 @@ app.use(logger());
 
 app.get("/appointments", (req, res) => {
   const appointments = db.get("appointments").value();
-  if (!appointments) {
+  if (!appointments || !appointments.length) {
     res.status(404).json({ message: "No appointments found" });
   } else {
     res.json(appointments);
@@ -17,7 +17,15 @@ app.get("/appointments", (req, res) => {
 });
 
 app.post("/appointments", (req, res) => {
-  res.json({ message: "ok" });
+  // Dialogflow sends ugly nested JSON so we have to grab what we need
+  const parameters = req.body.queryResult.parameters;
+  const newAppointment = {
+    date_time: parameters["date-time"].date_time,
+  };
+  // save the new time in the db
+  db.get("appointments").push(newAppointment).write();
+  const fulfillmentMessages = req.body.queryResult.fulfillmentMessages;
+  res.json({ fulfillmentMessages });
 });
 
 module.exports = app;
