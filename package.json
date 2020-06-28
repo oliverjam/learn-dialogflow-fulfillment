@@ -5,9 +5,12 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "test": "NODE_ENV=test tape src/tests.js | tap-spec"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "NODE_ENV=test tape src/tests.js | tap-spec",
+    "start:solution": "node solution/index.js",
+    "dev:solution": "nodemon solution/index.js",
+    "test:solution": "NODE_ENV=test tape solution/tests.js | tap-spec"
   },
   "keywords": [],
   "author": "@oliverjam",

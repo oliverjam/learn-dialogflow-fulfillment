@@ -16,16 +16,4 @@ app.get("/appointments", (req, res) => {
   }
 });
 
-app.post("/appointments", (req, res) => {
-  // Dialogflow sends ugly nested JSON so we have to grab what we need
-  const parameters = req.body.queryResult.parameters;
-  const newAppointment = {
-    date_time: parameters["date-time"].date_time,
-  };
-  // save the new time in the db
-  db.get("appointments").push(newAppointment).write();
-  const fulfillmentMessages = req.body.queryResult.fulfillmentMessages;
-  res.json({ fulfillmentMessages });
-});
-
 module.exports = app;

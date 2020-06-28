@@ -4,7 +4,7 @@ Learn how to integrate a Google Dialogflow chatbot with your own backend using a
 
 ## Before you start
 
-Make sure you hve git, Node and npm installed on your machine. Complete the [Appointment Scheduler](https://codelabs.developers.google.com/codelabs/chatbots-dialogflow-appointment-scheduler/#0) Google Codelab, which will walk you through setting up a basic chatbot with Dialogflow.
+Make sure you have git, Node and npm installed on your machine. Complete the [Appointment Scheduler](https://codelabs.developers.google.com/codelabs/chatbots-dialogflow-appointment-scheduler/#0) Google Codelab, which will walk you through setting up a basic chatbot with Dialogflow.
 
 ## Run this project locally
 
