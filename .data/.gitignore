@@ -1,0 +1,6 @@
+# ignore everything in this directory
+# since we don't want to sync local data to GitHub
+*
+# but keep the .gitignore, since git can't track empty folders
+# we want .data on GitHub as LowDB crashes if it can't find this dir
+!.gitignore
