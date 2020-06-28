@@ -221,6 +221,8 @@ You can check if your webhook request worked by clicking the "Diagnostic Info" b
 
 Go back to your Glitch app and refresh the home route view. You should see it now displays an array containing the appointment you just created.
 
+![](https://user-images.githubusercontent.com/9408641/85956376-5bc66280-b97d-11ea-89f4-b34c65fecf5b.png)
+
 ## Next steps
 
 Well done on building a custom backend for your agent. You now have the building blocks to go and create your own interesting integrations. You could try connecting the same appointments agent up to the Google Calendar API, or you could create a whole new bot that does something totally random. I would recommend reading the [docs for fulfillment webhooks](https://cloud.google.com/dialogflow/docs/fulfillment-webhook), since there's more to it than just basic text responses.
