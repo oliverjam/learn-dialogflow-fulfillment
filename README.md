@@ -205,7 +205,7 @@ Then click the "Webhook" toggle to enable it.
 
 ![](https://user-images.githubusercontent.com/9408641/85956095-3df7fe00-b97b-11ea-90bd-5a1889563cb3.png)
 
-You now need to provide Dialogflow with the `POST` endpoint of your server. You can find this by going back to Glitch and clicking the "Change URl" button above the preview browser. This will show you the deployed URL of your project; it'll be something like `https://oliverjam-learn-dialogflow-fulfillment.glitch.me`.
+You now need to provide Dialogflow with the `POST` endpoint of your server. You can find this by going back to Glitch and clicking the "Change URL" button above the preview browser. This will show you the deployed URL of your project; it'll be something like `https://oliverjam-learn-dialogflow-fulfillment.glitch.me`.
 
 Paste this into the Dialogflow Webhook field, and add "/appointments" on to the end, since that's the route for POST requests.
 
@@ -219,6 +219,8 @@ You can check if your webhook request worked by clicking the "Diagnostic Info" b
 
 ![](https://user-images.githubusercontent.com/9408641/85956202-400e8c80-b97c-11ea-8052-1b43665bf32a.png)
 
+Go back to your Glitch app and refresh the home route view. You should see it now displays an array containing the appointment you just created.
+
 ## Next steps
 
-Well done on building a custom backend for your agent. You now have the building blocks to go and create your own interesting integrations. You could try connecting the same appointments agent up to the Google Calendar API, or you could create a whole new bot that does something totally random.
+Well done on building a custom backend for your agent. You now have the building blocks to go and create your own interesting integrations. You could try connecting the same appointments agent up to the Google Calendar API, or you could create a whole new bot that does something totally random. I would recommend reading the [docs for fulfillment webhooks](https://cloud.google.com/dialogflow/docs/fulfillment-webhook), since there's more to it than just basic text responses.
