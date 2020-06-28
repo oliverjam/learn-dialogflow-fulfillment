@@ -7,7 +7,8 @@ test("Returns 404 when there are no appointments", (t) => {
   supertest(app)
     .get("/appointments")
     .expect(404, expectedResponse)
-    .end(() => t.end());
+    .catch(t.error)
+    .finally(t.end);
 });
 
 const examplePost = {
@@ -65,7 +66,8 @@ test("Saves a new appointment", (t) => {
     .post("/appointments")
     .send(examplePost)
     .expect(200, expectedResponse)
-    .end(() => t.end());
+    .catch(t.error)
+    .finally(t.end);
 });
 
 // This test has to run afer the POST test
@@ -75,5 +77,6 @@ test("Returns newly created appointment", (t) => {
   supertest(app)
     .get("/appointments")
     .expect(200, expectedResponse)
-    .end(() => t.end());
+    .catch(t.error)
+    .finally(t.end);
 });
