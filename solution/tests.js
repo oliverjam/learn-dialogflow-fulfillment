@@ -5,7 +5,7 @@ const app = require("./server");
 test("Returns 404 when there are no appointments", (t) => {
   const expectedResponse = { message: "No appointments found" };
   supertest(app)
-    .get("/appointments")
+    .get("/")
     .expect(404, expectedResponse)
     .catch(t.error)
     .finally(t.end);
@@ -75,7 +75,7 @@ test("Saves a new appointment", (t) => {
 test("Returns newly created appointment", (t) => {
   const expectedResponse = [{ date_time: "2020-06-29T05:00:00+01:00" }];
   supertest(app)
-    .get("/appointments")
+    .get("/")
     .expect(200, expectedResponse)
     .catch(t.error)
     .finally(t.end);

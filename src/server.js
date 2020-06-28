@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(logger());
 
-app.get("/appointments", (req, res) => {
+app.get("/", (req, res) => {
   const appointments = db.get("appointments").value();
   if (!appointments || !appointments.length) {
     res.status(404).json({ message: "No appointments found" });
