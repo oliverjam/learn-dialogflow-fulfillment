@@ -103,7 +103,7 @@ Click to see an example POST body
 
 </details>
 
-The bit we're interested in is `queryResult`. This contains the parameters our agent extracted from the user's statement. It's awkward nested but we want to grab the `date_time` value and add it to the `appointments` array in our database. Each item in the array should be an object with a `date_time` property.
+The bit we're interested in is `queryResult`. This contains the parameters our agent extracted from the user's statement. It's awkwardly nested but we want to grab the `date_time` value and add it to the `appointments` array in our database. Each item in the array should be an object with a `date_time` property.
 
 **Hint**: you can add an item to an array in lowdb using:
 
@@ -128,6 +128,7 @@ app.post("/appointments", (req, res) => {
   };
   // save the new time in the db
   db.get("appointments").push(newAppointment).write();
+  res.json({});
 });
 ```
 
@@ -192,6 +193,32 @@ Glitch should open your project in their browser-based editor. Give it a minute 
 
 You can view your server's responses by clicking "Show" at the top left, then "Next to the code". This should open a mini-browser pointed at your app's home route. Right now this should show `{ message: "No appointments found" }`.
 
-## Part three: configure your agent
+## Part four: configure your agent
+
+Now that we have a deployed server we can finally hook up our Dialogflow agent.
 
 Open the Dialogflow console and view your "appointments" agent. Select the "Fulfillment" option in the sidebar.
+
+![](https://user-images.githubusercontent.com/9408641/85956082-11dc7d00-b97b-11ea-845b-1cda7c6e5298.png)
+
+Then click the "Webhook" toggle to enable it.
+
+![](https://user-images.githubusercontent.com/9408641/85956095-3df7fe00-b97b-11ea-90bd-5a1889563cb3.png)
+
+You now need to provide Dialogflow with the `POST` endpoint of your server. You can find this by going back to Glitch and clicking the "Change URl" button above the preview browser. This will show you the deployed URL of your project; it'll be something like `https://oliverjam-learn-dialogflow-fulfillment.glitch.me`.
+
+Paste this into the Dialogflow Webhook field, and add "/appointments" on to the end, since that's the route for POST requests.
+
+![](https://user-images.githubusercontent.com/9408641/85956138-ae068400-b97b-11ea-83fd-cade9336e650.png)
+
+Don't worry about securing the endpoint with an authorization header yet.
+
+Click the "Save" button right at the bottom to save your webhook. You can now send a test query to your agent using the "Try it now sidebar" on the right. Enter something like "book an appointment for 12 o clock tomorrow". Hopefully you see the same response from the bot you were seeing before.
+
+You can check if your webhook request worked by clicking the "Diagnostic Info" button at the bottom. This has tabs to show the "Fulfillment response" and "Fulfillment status". If there was a problem with the request you'll see the errors here.
+
+![](https://user-images.githubusercontent.com/9408641/85956202-400e8c80-b97c-11ea-8052-1b43665bf32a.png)
+
+## Next steps
+
+Well done on building a custom backend for your agent. You now have the building blocks to go and create your own interesting integrations. You could try connecting the same appointments agent up to the Google Calendar API, or you could create a whole new bot that does something totally random.
