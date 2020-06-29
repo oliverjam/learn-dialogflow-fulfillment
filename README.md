@@ -12,7 +12,7 @@ Make sure you have git, Node and npm installed on your machine. Complete the [Ap
 1. Run `npm install` to install project dependencies
 1. Run `npm run dev` to start the development server
 
-It's important to clone the repo as you'll need to push your own version to GitHub to deploy it.
+It's important to fork the repo as you'll need to push your own version to GitHub to deploy it.
 
 ## Project setup
 
