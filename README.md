@@ -213,7 +213,11 @@ Paste this into the Dialogflow Webhook field, and add "/appointments" on to the 
 
 Don't worry about securing the endpoint with an authorization header yet.
 
-Click the "Save" button right at the bottom to save your webhook. You can now send a test query to your agent using the "Try it now sidebar" on the right. Enter something like "book an appointment for 12 o clock tomorrow". Hopefully you see the same response from the bot you were seeing before.
+Click the "Save" button right at the bottom to save your webhook. Finally we need to go back to our "appointment" intent, scroll to the bottom, expand the "Fulfillment" section and toggle "Enable webhook call for this intent".
+
+![](https://user-images.githubusercontent.com/9408641/86001131-60832900-ba06-11ea-8bc3-a2fbca5e6eea.png)
+
+You can now send a test query to your agent using the "Try it now sidebar" on the right. Enter something like "book an appointment for 12 o clock tomorrow". Hopefully you see the same response from the bot you were seeing before.
 
 You can check if your webhook request worked by clicking the "Diagnostic Info" button at the bottom. This has tabs to show the "Fulfillment response" and "Fulfillment status". If there was a problem with the request you'll see the errors here.
 
